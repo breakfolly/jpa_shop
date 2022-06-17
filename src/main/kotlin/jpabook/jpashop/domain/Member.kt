@@ -14,7 +14,7 @@ class Member(
     var address : Address,
 
     @OneToMany(mappedBy = "member")
-    var orders : List<Order>
+    var orders : List<Order> = mutableListOf()
 ) {
 
 }
