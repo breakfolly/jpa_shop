@@ -11,7 +11,7 @@ abstract class Item(
     @Id
     @GeneratedValue
     @Column(name = "item_id")
-    var id: Long,
+    var id: Long? = null,
 
     var name: String,
 
