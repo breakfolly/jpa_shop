@@ -11,7 +11,7 @@ class Member(
     var name: String,
 
     @Embedded
-    var address : Address,
+    var address : Address? = null,
 
     @OneToMany(mappedBy = "member")
     var orders : List<Order> = mutableListOf()
