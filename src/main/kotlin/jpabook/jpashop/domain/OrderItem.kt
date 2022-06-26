@@ -5,7 +5,7 @@ import javax.persistence.*
 import javax.persistence.FetchType.*
 
 @Entity
-class OrderItem (
+class OrderItem protected constructor(
     @Id
     @GeneratedValue
     @Column(name = "order_item_id")

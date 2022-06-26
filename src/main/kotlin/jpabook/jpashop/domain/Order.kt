@@ -6,7 +6,7 @@ import javax.persistence.FetchType.*
 
 @Entity
 @Table(name = "orders")
-class Order(
+class Order protected constructor(
     @Id
     @GeneratedValue
     @Column(name = "order_id")
