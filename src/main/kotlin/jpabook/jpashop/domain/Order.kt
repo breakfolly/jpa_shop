@@ -32,11 +32,11 @@ class Order protected constructor(
     // 연관 관계 method
     fun setMemberAndOrder(member: Member) {
         this.member = member
-        member.orders.plus(this)
+        member.orders = member.orders.plus(this)
     }
 
     fun addOrderItem(orderItem: OrderItem) {
-        orderItems.plus(orderItem)
+        this.orderItems = this.orderItems.plus(orderItem)
         orderItem.order = this
     }
 

@@ -6,12 +6,12 @@ import javax.persistence.Entity
 @Entity
 @DiscriminatorValue("B")
 class Book(
-    id: Long,
+    id: Long? = null,
     name: String,
     price: Int,
     stockQuantity: Int,
-    var author: String,
-    var isbn: String
+    var author: String? = null,
+    var isbn: String? = null
 ) : Item(id = id, name = name, price = price, stockQuantity = stockQuantity) {
 
 }
