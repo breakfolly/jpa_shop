@@ -26,4 +26,11 @@ class ItemController (
         itemService.saveItem(book)
         return "redirect:/items"
     }
+
+    @GetMapping("/items")
+    fun list(model: Model): String {
+        val items = itemService.findItems()
+        model.addAttribute("items", items)
+        return "items/itemList"
+    }
 }
