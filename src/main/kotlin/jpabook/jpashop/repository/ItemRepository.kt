@@ -12,7 +12,7 @@ class ItemRepository {
     private lateinit var em : EntityManager
 
     fun save(item: Item) {
-        item.id?.run { em.persist(item) } ?: run { em.merge(item) }
+        item.id?.run { em.merge(item) } ?: run { em.persist(item) }
     }
 
     fun findOne(id: Long): Item ?{
