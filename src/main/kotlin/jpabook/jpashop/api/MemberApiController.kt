@@ -14,6 +14,36 @@ class MemberApiController(
     val memberService: MemberService
 ) {
 
+    @GetMapping("/api/v1/members")
+    fun membersV1(): List<Member> {
+        return memberService.findMembers()
+    }
+
+    @GetMapping("/api/v2/members")
+    fun membersV2(): Result<List<MemberDto>> {
+        val members = memberService.findMembers()
+            .map { member ->
+                MemberDto(member.name)
+            }.toList()
+        return Result(members.size, members)
+    }
+
+    @Data
+    class Result<T>(
+        val count: Int,
+        val data: T
+    ) {
+
+    }
+
+    @Data
+    class MemberDto(
+        val name: String
+    ) {
+
+    }
+
+
     @PostMapping("/api/v1/members")
     fun saveMemberV1(@RequestBody @Valid member: Member): CreateMemberResponse {
         val id = memberService.join(member)
@@ -35,6 +65,7 @@ class MemberApiController(
         val member = memberService.findOne(id)
         return UpdateMemberResponse(id, member.name)
     }
+
 
     @Data
     class CreateMemberRequest(
