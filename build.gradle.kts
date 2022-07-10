@@ -31,6 +31,7 @@ dependencies {
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+	implementation("com.fasterxml.jackson.datatype:jackson-datatype-hibernate5:2.13.3")
 	implementation("com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.8.0")
 	compileOnly("org.projectlombok:lombok")
 	runtimeOnly("com.h2database:h2:1.4.199")
